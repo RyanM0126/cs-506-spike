@@ -1,33 +1,15 @@
 import React from "react";
-import { Button, Link } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import ListItemLink from "./ListItemLink";
 
 function SignedOutLinks() {
   return (
     <div>
       <Button color="inherit">
-        <Link
-          component="button"
-          variant="body2"
-          color="inherit"
-          onClick={() => {
-            alert("Sign In Click");
-          }}
-        >
-          Sign In
-        </Link>
+        <ListItemLink to="/signin" primary="Sign In" />
       </Button>
-
       <Button color="inherit">
-        <Link
-          component="button"
-          variant="body2"
-          color="inherit"
-          onClick={() => {
-            alert("Sign Up Click");
-          }}
-        >
-          Sign Up
-        </Link>
+        <ListItemLink to="/signup" primary="Sign Up" />
       </Button>
     </div>
   );

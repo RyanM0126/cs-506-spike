@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "@material-ui/core/Link";
+import ListItemLink from "./ListItemLink";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
@@ -23,25 +24,16 @@ const useStyles = makeStyles(theme => ({
 
 function Navbar() {
   const classes = useStyles();
-  // const loggedIn = true
-  // const links = loggedIn ? (<SignedInLinks/>) : (<SignedOutLinks/>)
+  const loggedIn = false;
+  const links = loggedIn ? <SignedInLinks /> : <SignedOutLinks />;
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
-            UW - Live Well!
+            <ListItemLink to="/" primary="UW - Live Well!" />
           </Typography>
-          <SignedOutLinks/>
-          <SignedInLinks/>
+          {links}
         </Toolbar>
       </AppBar>
     </div>
