@@ -33,8 +33,12 @@ class CreateHouse extends Component {
                         <input type="text" id="title" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
-                        <label htmlFor="content">House Content</label>
+                        <label htmlFor="content">Description</label>
                         <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
+                    </div>
+                    <div className="input-field">
+                        <label htmlFor="content">Rent</label>
+                        <textarea id="rent" className="materialize-textarea" onChange={this.handleChange}></textarea>
                     </div>
                     <div className="input-field">
                         <button className="btn red lighten-1 z-depth-0">Submit</button>
