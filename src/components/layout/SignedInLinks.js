@@ -1,38 +1,28 @@
-import React from "react";
-import { Button, Link, Fab } from "@material-ui/core";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { signOut } from '../../store/actions/authActions'
 
-function SignedInLinks() {
-  return (
-    <div>
-      <Button color="inherit">
-        <Link
-          component="button"
-          variant="body2"
-          color="inherit"
-          onClick={() => {
-            alert("Sign Out Click");
-          }}
-        >
-          Sign Out
-        </Link>
-      </Button>
-      <Button color="inherit">
-        <Link
-          component="button"
-          variant="body2"
-          color="inherit"
-          onClick={() => {
-            alert("Add Houses Click");
-          }}
-        >
-          Add Houses
-        </Link>
-      </Button>
-      <Fab size="medium" color="secondary">
-          RM
-      </Fab>
-    </div>
-  );
+// If one is to click on Sign Out, then it dispatches the action creator below
+// Inside the action creator (located in authActions), it will sign them out,
+// then dispatch SIGNOUT_SUCCESS. Then, if we get SIGNOUT_SUCCESS, it will be handled
+// in the authReducer
+const SignedInLinks = (props) => {
+    return (
+        <ul className="right">
+            <li><NavLink to='/create'>Add House</NavLink></li>
+            <li><a onClick={props.signOut}>Sign Out</a></li>
+            <li><NavLink to='/profile' className='btn btn-floating blue lighten-1'>
+                {props.profile.initials}    
+            </NavLink></li>
+        </ul>
+    )
 }
 
-export default SignedInLinks;
+const mapDispatchToProps = (dispatch) => {
+    return {
+      signOut: () => dispatch(signOut())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignedInLinks)
