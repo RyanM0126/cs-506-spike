@@ -8,6 +8,7 @@ class Profile extends Component {
     password: "",
     firstName: "",
     lastName: "",
+    age: "",
     authError: ""
   };
 

@@ -7,15 +7,18 @@ import moment from 'moment'
 
 const HouseDetails = (props) => {
     const { house, auth } = props;
+    console.log(props)
     if (!auth.uid) return <Redirect to='/signin' />
 
     if (house) {
+        console.log(house)
         return (
             <div className="container section">
                 <div className="card z-depth-0">
                     <div className="card-content">
                         <span className="card-title">{ house.title }</span>
                         <p>{ house.content }</p>
+                        <p>Rent: ${house.rent}/month</p>
                     </div>
                     <div className="card-action grey lighten-4 grey-text">
                         <div>Posted by { house.postersFirstName } { house.postersLastName }</div>

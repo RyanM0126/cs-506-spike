@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { getFirestore } from "redux-firestore";
-import { getFirebase } from "react-redux-firebase";
 
 class ProfileUpdate extends Component {
   state = {
     firstName: this.props.profile.firstName,
     lastName: this.props.profile.lastName,
+    email: this.props.profile.email,
+    age: this.props.profile.age,
   };
 
   render() {
@@ -21,6 +21,8 @@ class ProfileUpdate extends Component {
               <div>
                   <p>{this.state.firstName}</p>
                   <p>{this.state.lastName}</p>
+                  <p>Age: {this.state.age} years old</p>
+                  <p>{this.state.email}</p>
               </div>
             </div>
           </div>
