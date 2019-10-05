@@ -1,23 +1,31 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Navbar from './components/layout/Navbar';
-import Dashboard from './components/dashboard/dashboard'
-import SignUp from './components/auth/SignUp'
-import SignIn from './components/auth/SignIn'
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Dashboard from "./components/dashboard/dashboard";
+import HouseDetails from "./components/houses/HouseDetails";
+import SignIn from "./components/auth/SignIn";
+import SignUp from "./components/auth/SignUp";
+import Profile from "./components/auth/Profile";
+import CreateHouse from "./components/houses/CreateHouse";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar/>
-        <Switch>
-          <Route exact path='/' component={Dashboard}></Route>
-          <Route exact path='/signup' component={SignUp}></Route>
-          <Route exact path='/signin' component={SignIn}></Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
-  );
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Dashboard}></Route>
+            <Route path="/signup" component={SignUp}></Route>
+            <Route path="/signin" component={SignIn}></Route>
+            <Route path="/create" component={CreateHouse} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/houses/:id" component={HouseDetails} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
